@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>bpm tap</title>
+    <meta name="description" content="Find out the BPM of the rhythm you're tapping to!">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, bpm, tools, rhythm game">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/bpmtap" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="bpm tap" />
+    <meta property="og:description" content="Find out the BPM of the rhythm you're tapping to!" />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/bpmtap" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/bpmtap/index-e86b7396.js"></script>
+    <link rel="stylesheet" href="/bpmtap/index-84ea1a14.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>bpm tap</h1>
+      <p class="subtitle">what bpm is this?</p>
+
+      <div id="output">
+        <div id="bpm" class="output">
+          <p id="bpm-value">180.0</p>
+        </div>
+        BPM at
+        <select name="rhythm" id="rhythm" class="auto">
+          <option value=1 selected>1/1</option>
+          <option value=2>1/2</option>
+          <option value=3>1/3</option>
+          <option value=4>1/4</option>
+          <option value=6>1/6</option>
+          <option value=8>1/8</option>
+        </select>
+      </div>
+      <p id="details-remaining" class="subtitle">Waiting for taps...</p>
+      <p id="details" class="subtitle hidden"><span id="total">64</span> taps at <span id="mstap">333.3</span>ms per tap or <span id="taps">3.0</span> taps per second</p>
+      
+      <a id="tap" class="button">
+        <p class="label">Tap me!</p>
+      </a>
+      
+      <a id="reset" class="button">
+        <p class="label">Reset</p>
+      </a>
+
+      <p class="subtitle">You can tap with any key from A to Z, and reset the count with R.</p>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

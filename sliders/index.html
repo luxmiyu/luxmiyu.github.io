@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>sliders</title>
+    <meta name="description" content="An advanced osu! standard slider creation tool!">
+    <meta name="keywords" content="osu, editor, slider, creation, tool, copy, luxmiyu, lux, miyu, dev">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/sliders" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="sliders" />
+    <meta property="og:description" content="An advanced osu! standard slider creation tool!" />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/sliders" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/sliders/index-3aeaf69d.js"></script>
+    <link rel="stylesheet" href="/sliders/index-8def40cc.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="top">
+        <h1>sliders</h1>
+        <p class="subtitle">an advanced osu! slider creation tool</p>
+      </div>
+
+      <div id="bottom">
+        <p id="coordinates">x: 727.60, y: 320.03</p>
+        <p id="basics">G: Move, R: Rotate, S: Scale</p>
+        <p id="debug"></p>
+        <footer>
+          <a href="https://luxmiyu.com" target="_blank">by luxmiyu</a>
+          (<a href="https://osu.ppy.sh/users/luxmiyu" target="_blank">my osu</a>)
+          | <a id="theme-toggle">switch to light theme</a> |
+          <a id="help-button">help menu</a>
+        </footer>
+      </div>
+    </div>
+
+    <canvas id="canvas">
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <div id="pressed"></div>
+
+    <div id="advanced-transform" class="hidden">
+      <h2>Advanced Transform</h2>
+      <div class="labeled">
+        <p>Rotate:</p>
+        <input type="number" name="input-rotate" id="input-rotate" value="0" step="1">
+      </div>
+      <div class="labeled">
+        <p>Scale:</p>
+        <input type="number" name="input-scale" id="input-scale" value="1.0" step="0.1">
+      </div>
+      <button id="apply-transform">Apply Transform</button>
+    </div>
+
+    <div id="export" class="hidden">
+      <h2>Successfully exported to .osu code</h2>
+      <p>The text below has been copied to your clipboard, please open your difficulty's .osu file and paste this into the [HitObjects] section.</p>
+      <div id="export-text">
+        <p id="export-code"></p>
+      </div>
+    </div>
+
+    <div id="toolbar" class="hidden"></div>
+
+    <section id="context-menu" class="hidden">
+      <div class="context-item" id="context-add" data-name="Add" data-keybind="E"></div>
+      <div class="context-item" id="context-cut" data-name="Cut" data-keybind="X"></div>
+      <div class="context-item" id="context-copy" data-name="Copy" data-keybind="C"></div>
+      <div class="context-item" id="context-paste" data-name="Paste" data-keybind="V"></div>
+      <div class="context-divider"></div>
+      <div class="context-item" id="context-advanced-transform" data-name="Advanced Transform" data-keybind="T"></div>
+      <div class="context-item" id="context-flip-horizontally" data-name="Flip Horizontally" data-keybind="H"></div>
+      <div class="context-item" id="context-flip-vertically" data-name="Flip Vertically" data-keybind="J"></div>
+      <div class="context-item" id="context-reverse-order" data-name="Reverse Order" data-keybind="U"></div>
+      <div class="context-item" id="context-toggle-type" data-name="Toggle Point Type" data-keybind="B"></div>
+      <div class="context-divider"></div>
+      <div class="context-item" id="context-round-coordinates" data-name="Round Coordinates"></div>
+      <div class="context-item" id="context-convert-arcs" data-name="Convert Arcs to Bézier Curves"></div>
+      <div class="context-item" id="context-center" data-name="Center Slider to Playfield"></div>
+      <div class="context-item" id="context-export" data-name="Export to .osu code" data-keybind="O"></div>
+      <div class="context-item" id="context-import" data-name="Import .osu code"></div>
+    </section>
+
+    <div id="help" class="hidden">
+      <div id="help-header">
+        <h2>Help Menu</h2>
+        <div id="help-close">&#215;</div>
+      </div>
+
+      <div id="help-container">
+        <div id="help-sidebar">
+          <div id="sidebar-buttons">
+            <div id="tab-shortcuts" class="sidebar-button active">Shortcuts</div>
+            <div id="tab-guide" class="sidebar-button">Guide</div>
+            <div id="tab-changelog" class="sidebar-button">Changelog</div>
+            <div id="tab-about" class="sidebar-button">About</div>
+          </div>
+
+          <div id="sidebar-footer">
+            <p id="sidebar-footer-text">luxmiyu's Ultimate Slider Editor</p>
+          </div>
+        </div>
+
+        <div id="help-content">
+          <section id="section-shortcuts" class="active">
+            <h3>Shortcuts</h3>
+            <div class="keybind-details">
+              <!-- <div class="keybind-detail" data-name="" data-description=""></div> -->
+              <div class="keybind-detail" data-name="Esc" data-description="Close Window"></div>
+              <div class="keybind-detail" data-name="I" data-description="Toggle Help Menu"></div>
+              <div class="keybind-detail" data-name="L" data-description="Toggle Theme"></div>
+              <div class="keybind-detail" data-name="O" data-description="Export to .osu code"></div>
+              <div class="keybind-detail" data-name="P" data-description="Reset slider"></div>
+            </div>
+
+            <h3>Basic</h3>
+            <div class="keybind-details">
+              <div class="keybind-detail" data-name="Q" data-description="Deselect"></div>
+              <div class="keybind-detail" data-name="W" data-description="Select"></div>
+              <div class="keybind-detail" data-name="E" data-description="Add"></div>
+              <div class="keybind-detail" data-name="Del" data-description="Delete"></div>
+              <div class="keybind-detail" data-name="G" data-description="Move"></div>
+              <div class="keybind-detail" data-name="R" data-description="Rotate"></div>
+              <div class="keybind-detail" data-name="S" data-description="Scale"></div>
+            </div>
+
+            <h3>Intermediate</h3>
+            <div class="keybind-details">
+              <div class="keybind-detail" data-name="Z" data-description="Undo"></div>
+              <div class="keybind-detail" data-name="Y" data-description="Redo"></div>
+              <div class="keybind-detail" data-name="A" data-description="Select All"></div>
+              <div class="keybind-detail" data-name="D" data-description="Deselect All"></div>
+              <div class="keybind-detail" data-name="Shift" data-description="Snap to Grid"></div>
+              <div class="keybind-detail" data-name="F" data-description="Snap to Points"></div>
+              <div class="keybind-detail" data-name="H" data-description="Flip Horizontal"></div>
+              <div class="keybind-detail" data-name="J" data-description="Flip Vertical"></div>
+              <div class="keybind-detail" data-name="U" data-description="Reverse"></div>
+            </div>
+
+            <h3>Advanced</h3>
+            <div class="keybind-details">
+              <div class="keybind-detail" data-name="X" data-description="Cut"></div>
+              <div class="keybind-detail" data-name="C" data-description="Copy"></div>
+              <div class="keybind-detail" data-name="V" data-description="Paste"></div>
+              <div class="keybind-detail" data-name="B" data-description="Toggle Type"></div>
+              <div class="keybind-detail" data-name="K" data-description="Cycle Grid Size"></div>
+              <div class="keybind-detail" data-name="Shift + Scroll" data-description="Adjust Circle Size"></div>
+              <div class="keybind-detail" data-name="+" data-description="Expand Selection"></div>
+              <div class="keybind-detail" data-name="-" data-description="Contract Selection"></div>
+              <div class="keybind-detail" data-name="RMB" data-description="Open Context Menu"></div>
+              <div class="keybind-detail" data-name="T" data-description="Advanced Transform (Rotate + Scale)"></div>
+              <div class="keybind-detail" data-name="Ctrl" data-description="Enhance Precision (when moving, rotating and scaling)"></div>
+              <div class="keybind-detail" data-name="N" data-description="Smoothen Points (unselected points will align with selected points across an anchor)"></div>
+              <div class="keybind-detail" data-name="M" data-description="Mirror Points (unselected points will mirror selected points across an anchor)"></div>
+            </div>
+
+            <h3>Quick Rotate</h3>
+            <p class="subtitle">Hold Shift to rotate counter-clockwise. If nothing is selected, these will affect the entire slider.</p>
+            <div class="keybind-details">
+              <div class="keybind-detail" data-name="2" data-description="Rotate by 180°"></div>
+              <div class="keybind-detail" data-name="3" data-description="Rotate by 120°"></div>
+              <div class="keybind-detail" data-name="4" data-description="Rotate by 90°"></div>
+              <div class="keybind-detail" data-name="5" data-description="Rotate by 72°"></div>
+              <div class="keybind-detail" data-name="6" data-description="Rotate by 60°"></div>
+              <div class="keybind-detail" data-name="7" data-description="Rotate by 51.4°"></div>
+              <div class="keybind-detail" data-name="8" data-description="Rotate by 45°"></div>
+              <div class="keybind-detail" data-name="9" data-description="Rotate by 40°"></div>
+              <div class="keybind-detail" data-name="0" data-description="Rotate by 36°"></div>
+            </div>
+
+            <h3>Generate Polygon</h3>
+            <p class="subtitle">Hold Shift to rotate counter-clockwise. If nothing is selected, these will affect the entire slider.</p>
+            <div class="keybind-details">
+              <div class="keybind-detail" data-name="Alt + 2" data-description="Generate 2-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 3" data-description="Generate 3-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 4" data-description="Generate 4-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 5" data-description="Generate 5-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 6" data-description="Generate 6-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 7" data-description="Generate 7-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 8" data-description="Generate 8-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 9" data-description="Generate 9-sided polygon"></div>
+              <div class="keybind-detail" data-name="Alt + 0" data-description="Generate 10-sided polygon"></div>
+            </div>
+          </section>
+
+          <section id="section-changelog">
+            <h3>Changelog</h3>
+
+            <h4>2023-09-12</h4>
+            <ul>
+              <li>- Added coordinates view at the bottom of the page.</li>
+              <li>- Added 'Round Coordinates' option to context menu.</li>
+              <li>- Added option to move points pixel by pixel using arrow keys.</li>
+              <li>- Fixed a bug with inaccurate Bézier curve conversions when arc angle was too narrow.</li>
+            </ul>
+
+            <h4>2023-09-11</h4>
+            <ul>
+              <li>- Added changelog page.</li>
+              <li>- Added shortcut hints to the right click menu.</li>
+              <li>- Added shortcut hints at the bottom of the page.</li>
+            </ul>
+
+            <h4>2023-09-10</h4>
+            <ul>
+              <li>- Initial release.</li>
+            </ul>
+          </section>
+
+          <section id="section-guide">
+            <h3>Guide</h3>
+            <p>You can select, multi-select and move anchor points with your cursor. You can also deselect and select points by hovering over them while holding either <code>Q</code> or <code>W</code>. Add and delete points with <code>E</code> and <code>X</code>.</p>
+            <video width="727" height="300" autoplay loop muted>
+              <source src="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/sliders_demo1.mp4?v=1694353460552" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <p>Quickly move, rotate and scale points by moving your cursor while holding <code>G</code>, <code>R</code> and/or <code>S</code>.</p>
+            <video width="727" height="300" autoplay loop muted>
+              <source src="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/sliders_demo2.mp4?v=1694354125240" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <p>After pressing <code>O</code>, the code will automatically be copied to your clipboard. Open your map's <span class="code">.osu</span> file, paste this code into the <span class="code">[HitObjects]</span> section and reload.</p>
+            <video width="727" height="300" autoplay loop muted>
+              <source src="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/sliders_demo3.mp4?v=1694355132614" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <p>There are a lot of convenient features you might find useful, such as snapping, mirroring, advanced transform, and even generating polygons. Make sure you check the <strong>Shortcuts</strong> section, and if memorizing many shortcuts seems overwhelming, you can always use <code>Right Click</code> to bring up the context menu.</p>
+            <video width="727" height="300" autoplay loop muted>
+              <source src="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/sliders_demo4.mp4?v=1694355596128" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <p>If you have any questions feel free to PM me on osu! or DM me on Discord!</p>
+          </section>
+
+          <section id="section-about">
+            <h3>About</h3>
+            <div id="pfp">
+              <img src="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg?v=1677173567603" alt="luxmiyu's profile picture">
+            </div>
+
+            <div id="cards">
+              <div class="card">
+                <div class="title"><p>More of my stuff</p></div>
+                <div class="description"><p><a href="https://luxmiyu.com/" target="_blank">luxmiyu.com</a></p></div>
+              </div>
+              <div class="card">
+                <div class="title"><p>My osu! profile</p></div>
+                <div class="description"><p><a href="https://osu.ppy.sh/users/luxmiyu" target="_blank">osu.ppy.sh/users/luxmiyu</a></p></div>
+              </div>
+              <div class="card">
+                <div class="title"><p>My Discord server</p></div>
+                <div class="description"><p><a href="https://discord.gg/komimau" target="_blank">discord.gg/komimau</a></p></div>
+              </div>
+              <div class="card">
+                <div class="title"><p>My GitHub page</p></div>
+                <div class="description"><p><a href="https://github.com/luxmiyu" target="_blank">github.com/luxmiyu</a></p></div>
+              </div>
+              <div class="card">
+                <div class="title"><p>Inspired by</p></div>
+                <div class="description"><p><a href="https://slider.little.moe/" target="_blank">SliderStudio</a> by <a href="https://osu.ppy.sh/users/2099102" target="_blank">Little</a></p></div>
+              </div>
+              <div class="card">
+                <div class="title"><p>Also see</p></div>
+                <div class="description"><p><a href="https://mappingtools.github.io/" target="_blank">Mapping Tools</a> by <a href="https://osu.ppy.sh/users/6573093" target="_blank">OliBomby</a></p></div>
+              </div>
+            </div>
+
+            <p>If you have any issues or questions, feel free to reach out to me on my discord server or via osu!.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    
+  </body>
+</html>

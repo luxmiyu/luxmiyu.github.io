@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>tictactoe</title>
+    <meta name="description" content="Just a simple clean tic-tac-toe game.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/tictactoe" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="tictactoe" />
+    <meta property="og:description" content="Just a simple clean tic-tac-toe game." />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/tictactoe" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/tictactoe/index-fabf64da.js"></script>
+    <link rel="stylesheet" href="/tictactoe/index-2d2f2d6e.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>tic tac toe</h1>
+      <p class="subtitle">a simple turn based game</p>
+
+      <div id="main" class="disabled">
+        <div id="board">
+          <div id="cell-0" class="cell"></div>
+          <div id="cell-1" class="cell"></div>
+          <div id="cell-2" class="cell"></div>
+          <div id="cell-3" class="cell"></div>
+          <div id="cell-4" class="cell"></div>
+          <div id="cell-5" class="cell"></div>
+          <div id="cell-6" class="cell"></div>
+          <div id="cell-7" class="cell"></div>
+          <div id="cell-8" class="cell"></div>
+        </div>
+
+        <p id="prompt">LOADING</p>
+      </div>
+
+      <div id="player-labels">
+        <p>Player X</p>
+        <p>Player O</p>
+      </div>
+
+      <div id="players">
+        <select name="player-x" id="player-x" disabled>
+          <option value="human">Human</option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+          <option value="impossible" selected>Impossible</option>
+        </select>
+  
+        <select name="player-o" id="player-o" disabled>
+          <option value="human" selected>Human</option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+          <option value="impossible">Impossible</option>
+        </select>
+      </div>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a> | <a id="reset">reset</a></footer>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>lights</title>
+    <meta name="description" content="Lights Out - A simple puzzle game about turning off lights.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, lights, out, game, online">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/lights" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="lights" />
+    <meta property="og:description" content="Lights Out - A simple puzzle game about turning off lights." />
+    <meta property="og:url" content="https://luxmiyu.com/lights" />
+
+    <meta property="twitter:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/lights_preview.png?v=1712247489265" />
+    <meta property="twitter:card" content="summary_large_image" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/lights/index-1c65ab4f.js"></script>
+    <link rel="stylesheet" href="/lights/index-fcf10d0a.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>lights</h1>
+      <p class="subtitle">lights out - a puzzle game about turning off lights</p>
+      
+      <div id="grid"></div>
+
+      <p id="moves" class="subtitle">Moves: 0, Target: 0</p>
+
+      <input type="range" name="range" id="range" min="3" max="15" value="5" step="1">
+
+      <button id="reset">new 5x5 game</button>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

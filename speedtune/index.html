@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>speedtune</title>
+    <meta name="description" content="An advanced Honkai: Star Rail speedtuning calculator tool.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/speedtune" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="speedtune" />
+    <meta property="og:description" content="An advanced Honkai: Star Rail speedtuning calculator tool." />
+    <meta property="og:url" content="https://luxmiyu.com/speedtune" />
+
+    <meta property="twitter:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/speedtune_preview.png?v=1709347687285" />
+    <meta property="twitter:card" content="summary_large_image" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/speedtune/index-637f8d6d.js"></script>
+    <link rel="stylesheet" href="/speedtune/index-b29edb17.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>speedtune</h1>
+      <p class="subtitle">a honkai star rail combat rotation planner</p>
+
+      <section class="box" id="information">
+        <div class="box-header" id="information-header">
+          <p class="box-title">Information</p>
+          <p class="box-toggle" id="information-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="information-content">
+          <p style="width: 100%; font-size: 1.25rem; text-align: center;"><b>
+            THIS IS WORK IN PROGRESS.<br>
+            EXPECT THINGS TO BE INACCURATE AND/OR BUGGY.
+          </b></p>
+          <p><b>Note:</b> We're currently looking for bugs and mistakes!</p>
+          <p>
+            This is an advanced Honkai: Star Rail combat rotation planner. Use this tool to simulate and plan out your team's turn order to maximize damange output.
+            Images used on this page were taken from <a href="https://hsr.honeyhunterworld.com/" target="_blank">honeyhunterworld.com</a> (unaffiliated).
+          </p>
+          <p>
+            It is important to note that this tool does not take into account outside factors such as enemy actions, energy regeneration, RNG applications, crowd control, and other more complex mechanics that affect turn order.
+          </p>
+          <p>
+            Some characters' mechanics aren't fully automated as they are too nuanced to be accurately simulated by the tool.
+            As an alternative you can add these events to the timeline manually or create your own custom events.
+          </p>
+          <p>Only Techniques, Traces, Eidolons, Relic Sets, and Lightcones that affect turn order are listed.</p>
+          <p><b>Caution:</b> Refreshing the page will clear all data. Starting a new battle will clear all events. You cannot modify previous events, but you can delete them to go "back in time".</p>
+
+          <a id="discord" href="https://discord.gg/komimau" target="_blank"><button>Join our Discord server</button></a>
+        </div>
+      </section>
+
+      <section class="box" id="limitations">
+        <div class="box-header" id="limitations-header">
+          <p class="box-title">Technical Limitations</p>
+          <p class="box-toggle" id="limitations-toggle">&#9776;</p>
+        </div>
+        <div class="box-content hidden" id="limitations-content">
+          <p>There will always be some margin of error compared to the in-game display because of rounded numbers. Expect values to deviate by around 0.1-1.0 AV to what you see in-game.</p>
+
+          <p>Tingyun: Tingyun's E1 makes her ultimate apply a SPD boost to the ally with Benediction, which the tool doesn't track. Please add the "Windfall of Lucky Springs" effect to the desired target manually.</p>
+
+          <p>Topaz &amp; Numby: Please add Numby as a separate character "Topaz &amp; Numby (Numby)" if you'd like to simulate Numby's Advance Forwards. You will have to add these events manually to the event sequence.</p>
+
+          <p>Jing Yuan: Please add Lightning Lord as a separate character "Jing Yuan (Lightning Lord)" if you'd like to simulate Lightning Lord's Speed Increases. You will have to add these events manually to the event sequence.</p>
+
+          <p>If you have any questions or suggestions, join us at <a href="https://discord.gg/komimau">discord.gg/komimau</a>.</p>
+        </div>
+      </section>
+
+      <section class="box" id="tutorial">
+        <div class="box-header" id="tutorial-header">
+          <p class="box-title">How does speed work?</p>
+          <p class="box-toggle" id="tutorial-toggle">&#9776;</p>
+        </div>
+        <div class="box-content hidden" id="tutorial-content">
+          <p>You can read more about speed <a href="https://honkai-star-rail.fandom.com/wiki/Speed" target="_blank">on the wiki</a>.</p>
+          <p>
+            Action Value is the unit of time used in Honkai: Star Rail's combat. It determines the turn order and the time in between turns.
+            The game tracks each character's remaining Action Value according to their Speed and updates it throughout the battle.
+          </p>
+          <p>
+            Speed is a character stat that determines how fast they can act in battle, it is affected via % bonuses as well as flat bonuses as shown in the following formula:
+          </p>
+          <p class="note">SPD = Base SPD * (1 + SPD%) + Flat SPD</p>
+          <p>
+            With this we can calculate a character's Base Action Value, which is the time in between each of their turns.
+            At the start of battle and after each of their turns, each character sets their Action Value to this number according to their own Speed.
+          </p>
+          <p class="note">Base Action Value = 10000 / SPD</p>
+          <p>Every character's Action Value decreases by the same amount each turn. Once a character's Action Value reaches 0, they will take their turn.</p>
+          <p>
+            A character's Action Value can be affected by either Speed modifications, or Action Value changes.
+            Speed modifications can be in the form of % bonuses or flat bonuses, and they can be either permanent or they last for a certain amount of turns.
+          </p>
+          <p class="note">New Action Value = Old Action Value * (Old SPD / New SPD)</p>
+          <p>
+            Action Value changes can be in the form of Action Advance or Action Delay, and they take effect immediately. Action Value cannot be lower than 0.
+            In the formula below, the change is negative if it is an Action Advance, and positive if it is an Action Delay:
+          </p>
+          <p class="note">New Action Value = Old Action Value + Base Action Value * Action Value Change %</p>
+          <p>Some applications allow characters to "Take Action Immediately". These are not related by the formulas above, as they forcibly set a character's Action Value to 0.</p>
+          <p>
+            Cycles are a time restriction mechanic used in certain modes like Memory of Chaos and Pure Fiction that force you to complete a stage within a certain amount of Action Value.
+            Cycle 0 lasts for 150 AV, and each subsequent cycle lasts for 100 AV.
+          </p>
+          <p>
+            When you complete a wave, the next wave will reset your current cycle and start over as if it was Cycle 0.
+          </p>
+        </div>
+      </section>
+      
+      <section class="box" id="setup">
+        <div class="box-header" id="setup-header">
+          <p class="box-title">Team Setup</p>
+          <p class="box-toggle" id="setup-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="setup-content">
+
+          <div id="characters" class="hidden"></div>
+
+          <div id="add-character">
+            <select name="add-character-select" id="add-character-select"></select>
+            <button id="add-character-button">Add Character</button>
+            <button id="clear-characters-button">Clear Characters</button>
+          </div>
+
+          <button id="battle-start" disabled>Battle Start (Missing Characters)</button>
+
+        </div>
+      </section>
+
+      <section id="sequence" class="box hidden">
+        <div class="box-header" id="sequence-header">
+          <p class="box-title">Event Sequence</p>
+          <p class="box-toggle" id="sequence-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="sequence-content">
+          <div id="events"></div>
+        </div>
+      </section>
+
+      <section id="timeline" class="box hidden">
+        <div class="box-header" id="timeline-header">
+          <p class="box-title">Timeline Graph</p>
+          <p class="box-toggle" id="timeline-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="timeline-content">
+          <div id="graph"></div>
+        </div>
+      </section>
+
+      <section class="box hidden" id="status">
+        <div class="box-header" id="status-header">
+          <p class="box-title">Team Status</p>
+          <p class="box-toggle" id="status-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="status-content">
+          <div id="team-status"></div>
+        </div>
+      </section>
+
+      <section class="box hidden" id="event">
+        <div class="box-header" id="event-header">
+          <p class="box-title">Add Event</p>
+          <p class="box-toggle" id="event-toggle">&#10006;</p>
+        </div>
+        <div class="box-content" id="event-content">
+
+          <div id="event-tabs">
+            <p id="turn-tab-button" class="tab-button selected">Next Turn</p>
+            <p id="manual-tab-button" class="tab-button">Add Event</p>
+            <p id="custom-tab-button" class="tab-button">Custom Effect</p>
+          </div>
+
+          <div id="turn-tab" class="tab">
+            <p>Next Turn</p>
+            <p id="next-cycle" class="">Cycle 0</p>
+            <div id="next-turn"></div>
+            <p>Target</p>
+            <div id="turn-targets" class="target-selector"></div>
+            <div id="next-turn-buttons">
+              <button id="add-next-turn">Add Next Turn</button>
+              <button id="skip-next-turn">Skip Next Turn</button>
+            </div>
+          </div>
+
+          <div id="manual-tab" class="tab hidden">
+            <p>Ultimates &amp; Other Events</p>
+            <div id="next-ultimate"></div>
+            <hr>
+            <div id="next-manual"></div>
+            <p>Target</p>
+            <div id="manual-targets" class="target-selector"></div>
+            <p id="manual-delay-label">Delay (max: 0 AV)</p>
+            <input type="number" id="manual-delay" min="0" max="12" value="0">
+            <button id="next-manual-button">Add Event</button>
+          </div>
+
+          <div id="custom-tab" class="tab hidden">
+            <p>Title</p>
+            <input type="text" id="custom-title" value="Custom Effect">
+            <p>Effect Type</p>
+            <select id="custom-type">
+              <option value="speed">Flat Speed</option>
+              <option value="speed%">% Speed</option>
+              <option value="action">Flat Action</option>
+              <option value="action%">% Action Value</option>
+              <option value="set">Set Action Value</option>
+            </select>
+            <p>Value</p>
+            <input type="number" id="custom-value" value="0">
+            <p>Duration (-1 for Permanent)</p>
+            <input type="number" id="custom-duration" min="-1" step="1" value="-1">
+            <p>Target</p>
+            <div id="custom-targets" class="target-selector"></div>
+            <p id="custom-delay-label">Delay (max: 0 AV)</p>
+            <input type="number" id="custom-delay" min="0" max="12" value="0">
+            <button id="next-custom-button">Add Custom Effect</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- print events object to console -->
+      <button id="debug" class="hidden">Debug</button>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

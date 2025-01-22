@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>snake</title>
+    <meta name="description" content="A simple snake game.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, snake, game">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/snake" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="snake" />
+    <meta property="og:description" content="A simple snake game." />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/snake" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/snake/index-c2a2ae90.js"></script>
+    <link rel="stylesheet" href="/snake/index-cca29ffe.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>snake</h1>
+      <p class="subtitle">a simple snake game</p>
+
+      <div id="board">
+        <div id="pause">PLAY</div>
+      </div>
+
+      <p id="score" class="subtitle">Score: 0</p>
+
+      <div id="checks">
+        <div class="check">
+          <p>mobile controls</p>
+          <input type="checkbox" name="check-controls" id="check-controls">
+        </div>
+        <!-- <div class="check">
+          <p>sound effects</p>
+          <input type="checkbox" name="check-sound" id="check-sound">
+        </div> -->
+      </div>
+      
+      <div id="buttons" class="hidden">
+        <button id="left">&larr;</button>
+        <div id="updown">
+          <button id="up">&uarr;</button>
+          <button id="down">&darr;</button>
+        </div>
+        <button id="right">&rarr;</button>
+      </div>
+
+      <p id="keyboard-controls" class="subtitle">use WASD or arrow keys to move, use spacebar to start</p>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

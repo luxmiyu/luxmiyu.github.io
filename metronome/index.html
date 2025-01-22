@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>metronone</title>
+    <meta name="description" content="A clean and simple metronome">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, bpm, tools, metronome, rhythm">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/metronome" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="metronome" />
+    <meta property="og:description" content="A clean and simple metronome" />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/metronome" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/metronome/index-866a1b53.js"></script>
+    <link rel="stylesheet" href="/metronome/index-5e36c090.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>metronome</h1>
+      <p class="subtitle">tick tock tock tock</p>
+      
+      <div class="slider">
+        <label for="bpm" class="output">BPM: 180</label>
+        <input type="range" id="bpm" min="20" max="400" value="180" step="1">
+      </div>
+
+      <div class="slider">
+        <label for="beats" class="output">Beats: 4</label>
+        <input type="range" id="beats" min="1" max="16" value="4" step="1">
+      </div>
+
+      <div class="slider">
+        <label for="volume" class="output">Volume: 80</label>
+        <input type="range" id="volume" min="0" max="100" value="80" step="1">
+      </div>
+
+      <div class="slider">
+        <label for="rhythm" class="output">Rhythm: 1/1</label>
+        <input type="range" id="rhythm" min="1" max="16" value="1" step="1">
+      </div>
+
+      <div id="visualizer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="buttons">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+      </div>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

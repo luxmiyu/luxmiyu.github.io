@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>mastermind</title>
+    <meta name="description" content="A classic code-breaking board game.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, mastermind, board, game, online">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/mastermind" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="mastermind" />
+    <meta property="og:description" content="A classic code-breaking board game." />
+    <meta property="og:url" content="https://luxmiyu.com/mastermind" />
+
+    <meta property="twitter:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/mastermind_preview.png?v=1711984124826" />
+    <meta property="twitter:card" content="summary_large_image" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/mastermind/index-70bb4b9e.js"></script>
+    <link rel="stylesheet" href="/mastermind/index-4695b925.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>mastermind</h1>
+      <p class="subtitle">a classic code-breaking board game</p>
+
+      <div id="answer"></div>
+
+      <div id="board">
+        <div class="row">
+          <div class="guess">
+            <div class="color color1"></div>
+            <div class="color color0"></div>
+            <div class="color color3"></div>
+            <div class="color color4"></div>
+          </div>
+          <div class="codes">
+            <div class="code code02"></div>
+            <div class="code code01"></div>
+            <div class="code code01"></div>
+            <div class="empty"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="guess">
+            <div class="color color5"></div>
+            <div class="color color2"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+          </div>
+          <div class="codes">
+            <div class="code code01"></div>
+            <div class="code code01"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+          </div>
+        </div>
+      </div>
+      <div id="colors"></div>
+      <div id="buttons">
+        <button id="delete">delete</button>
+        <button id="submit">submit</button>
+      </div>
+
+      <button id="restart">restart</button>
+
+      <p class="subtitle">Keyboard Shortcuts: 1-6, Enter, Backspace, R.</p>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

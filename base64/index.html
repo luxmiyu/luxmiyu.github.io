@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>base64</title>
+    <meta name="description" content="A simple base64 encoder and decoder.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, base, 64, encoder, decoder">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/base64" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="base64" />
+    <meta property="og:description" content="A simple base64 encoder and decoder." />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/base64" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/base64/index-f03aa0f2.js"></script>
+    <link rel="stylesheet" href="/base64/index-60f9e069.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>base64</h1>
+      <p class="subtitle">base64 encoder and decoder</p>
+
+      <h2>Original Text</h2>
+      <textarea name="text-original" id="text-original" cols="30" rows="10"></textarea>
+      <div class="buttons">
+        <button id="button-original-copy">copy to clipboard</button>
+        <button id="button-original-clear">clear text</button>
+        <button id="button-original-clean">filter invalid</button>
+      </div>
+
+      <p id="error" class="subtitle">invalid input</p>
+
+      <h2>Encoded Text</h2>
+      <textarea name="text-encoded" id="text-encoded" cols="30" rows="10"></textarea>
+      <div class="buttons">
+        <button id="button-encoded-copy">copy to clipboard</button>
+        <button id="button-encoded-clear">clear text</button>
+      </div>
+
+      <div id="depth">
+        <p id="depth-label" class="subtitle">depth: 1</p>
+        <input type="range" name="depth-range" id="depth-range" min="1" max="16" value="1">
+      </div>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a> | <a href="https://en.wikipedia.org/wiki/Base64" target="_blank">what is base64?</a></footer>
+    </div>
+
+    
+  </body>
+</html>

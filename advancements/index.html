@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>advancements</title>
+    <meta name="description" content="A Simple Minecraft Advancement Generator.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, minecraft, achievement, advancement, generator">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/advancements" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="minecraft advancement generator" />
+    <meta property="og:description" content="A Simple Minecraft Advancement Generator." />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/advancements" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/advancements/index-035e9b96.js"></script>
+    <link rel="stylesheet" href="/advancements/index-70b7f9a8.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>advancements</h1>
+      <p class="subtitle">advancement generator</p>
+
+      <div class="labeled">
+        <p>Icon URL</p>
+        <input type="text" name="input-image" id="input-image" value="https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c4/Honey_Block_JE1_BE2.png">
+        <input type="color" name="input-image-color" id="input-image-color" value="#ff99be" style="opacity: 0; cursor: default" disabled>
+      </div>
+      <div class="labeled">
+        <p>Title</p>
+        <input type="text" name="input-title" id="input-title" value="Advancement Made!">
+        <input type="color" name="input-title-color" id="input-title-color" value="#f6f553">
+      </div>
+      <div class="labeled">
+        <p>Description</p>
+        <input type="text" name="input-description" id="input-description" value="Sticky Situation">
+        <input type="color" name="input-description-color" id="input-description-color" value="#fafafa">
+      </div>
+
+      <div id="output" class="advancement-container">
+        <div class="advancement">
+
+          <div class="advancement-icon">
+            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c4/Honey_Block_JE1_BE2.png" alt="icon" id="output-image">
+          </div>
+          <div class="advancement-text">
+            <p class="advancement-title" id="output-title">Advancement Made!</p>
+            <p class="advancement-description" id="output-description">Sticky Situation</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="examples"></div>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

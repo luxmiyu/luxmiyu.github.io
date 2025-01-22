@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>color</title>
+    <meta name="description" content="A simple color picker.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, simple, color, picker">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/color" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="color" />
+    <meta property="og:description" content="A simple color picker." />
+    <meta property="og:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+    <meta property="og:url" content="https://luxmiyu.com/color" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/color/index-6b792896.js"></script>
+    <link rel="stylesheet" href="/color/index-00fa1553.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>color</h1>
+      <p class="subtitle">a simple color picker</p>
+
+      <canvas id="canvas" width="256" height="256"></canvas>
+
+      <div id="thumb"></div>
+
+      <div id="under">
+        <button id="eyedropper">&#9998;</button>
+
+        <div id="preview"></div>
+
+        <button id="randomize">&#10541;</button>
+      </div>
+
+      <section id="outputs">
+        <div class="labeled-output">
+          <h3>HEX</h3>
+          <input type="text" name="output-hex" id="output-hex">
+        </div>
+
+        <div class="labeled-output">
+          <h3>RGB</h3>
+          <input type="text" name="output-rgb" id="output-rgb">
+        </div>
+
+        <div class="labeled-output">
+          <h3>HSL</h3>
+          <input type="text" name="output-hsl" id="output-hsl">
+        </div>
+
+        <div class="labeled-output">
+          <h3>HSV</h3>
+          <input type="text" name="output-hsv" id="output-hsv">
+        </div>
+
+        <div class="labeled-output">
+          <h3>CMYK</h3>
+          <input type="text" name="output-cmyk" id="output-cmyk">
+        </div>
+
+        <div class="labeled-output">
+          <h3>INT</h3>
+          <input type="text" name="output-int" id="output-int">
+        </div>
+      </section>
+
+      <section id="hsv">
+        <div class="labeled-range">
+          <h3>H</h3>
+          <input type="range" name="range-hsv-h" id="range-hsv-h" min="0" max="360" step="1" value="338">
+        </div>
+        <div class="labeled-range">
+          <h3>S</h3>
+          <input type="range" name="range-hsv-s" id="range-hsv-s" min="0" max="100" step="1" value="40">
+        </div>
+        <div class="labeled-range">
+          <h3>V</h3>
+          <input type="range" name="range-hsv-v" id="range-hsv-v" min="0" max="100" step="1" value="100">
+        </div>
+      </section>
+
+      <section id="rgb">
+        <div class="labeled-range">
+          <h3>R</h3>
+          <input type="range" name="range-rgb-r" id="range-rgb-r" min="0" max="255" value="255">
+        </div>
+        <div class="labeled-range">
+          <h3>G</h3>
+          <input type="range" name="range-rgb-g" id="range-rgb-g" min="0" max="255" value="153">
+        </div>
+        <div class="labeled-range">
+          <h3>B</h3>
+          <input type="range" name="range-rgb-b" id="range-rgb-b" min="0" max="255" value="190">
+        </div>
+      </section>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>

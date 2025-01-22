@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  
+  by luxmiyu | luxmiyu.com | luxmiyu.dev
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/jpg" href="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/suiseihat.jpg" />
+
+    <!-- metadata -->
+    <title>convene</title>
+    <meta name="description" content="A clean and simple convene tracker for Wuthering Waves.">
+    <meta name="keywords" content="luxmiyu, lux, miyu, dev, convene, gacha, pull, tracker, history, wuthering waves, wuwa">
+    <meta name="author" content="luxmiyu">
+    <link rel="canonical" href="https://luxmiyu.com/convene" />
+
+    <!-- social media metadata -->
+    <meta property="og:title" content="convene" />
+    <meta property="og:description" content="A clean and simple convene tracker for Wuthering Waves." />
+    <meta property="og:url" content="https://luxmiyu.com/convene" />
+
+    <meta property="twitter:image" content="https://cdn.glitch.global/e5143343-dba7-4602-8cff-d021bb699e44/convene_preview.png?v=1717440864595" />
+    <meta property="twitter:card" content="summary_large_image" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- compiled -->
+    <script type="module" crossorigin src="/convene/index-cd83e448.js"></script>
+    <link rel="stylesheet" href="/convene/index-36492c4d.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="convene">convene</h1>
+      <p class="subtitle">a convene tracker for wuthering waves</p>
+
+      <section id="import" class="">
+        <div id="dropzone">Drop your "debug.log" file here to create a new profile</div>
+
+        <h2>Import Instructions</h2>
+
+        <p>- Run Wuthering Waves on PC.</p>
+        <p>- Open your Convene History and wait for it to load.</p>
+        <p>- Find "debog.log" in your game's install folder:</p>
+        <code>\Wuthering Waves Game\Client\Binaries\Win64\ThirdParty\KrPcSdk_Global\KRSDKRes\KRSDKWebView\debug.log</code>
+        <p>- Note: Your convene history is saved locally in your browser.</p>
+
+        <button id="import-profile">Import Saved Profile</button>
+      </section>
+
+      <section id="saved" class="hidden">
+        <h2>Saved Profiles</h2>
+      </section>
+
+      <section id="loading" class="hidden">Loading...</section>
+
+      <section id="main" class="hidden">
+        <div id="left">
+          <div id="stats"></div>
+        </div>
+
+        <div id="right">
+          <div id="select">
+            <select name="select-banner" id="select-banner">
+              <option value="1">Featured Resonator Convene</option>
+              <option value="2">Featured Weapon Convene</option>
+              <option value="3">Standard Resonator Convene</option>
+              <option value="4">Standard Weapon Convene</option>
+              <option value="5">Beginner Convene</option>
+              <option value="6">Beginner's Choice Convene</option>
+              <option value="7">Beginner's Choice Convene (Giveback Custom Convene)</option>
+            </select>
+  
+            <div id="filter-5" class="filter active">
+              <img src="https://cdn.glitch.global/c075fd5c-154d-425d-adb9-502f0cc7dae0/wuwa_5star.png?v=1717406924753" alt="5 stars">
+            </div>
+            <div id="filter-4" class="filter active">
+              <img src="https://cdn.glitch.global/c075fd5c-154d-425d-adb9-502f0cc7dae0/wuwa_4star.png?v=1717406924374" alt="4 stars">
+            </div>
+            <div id="filter-3" class="filter active">
+              <img src="https://cdn.glitch.global/c075fd5c-154d-425d-adb9-502f0cc7dae0/wuwa_3star.png?v=1717406925185" alt="3 stars">
+            </div>
+          </div>
+  
+          <div id="banner-1" class="pulls"></div>
+          <div id="banner-2" class="pulls hidden"></div>
+          <div id="banner-3" class="pulls hidden"></div>
+          <div id="banner-4" class="pulls hidden"></div>
+          <div id="banner-5" class="pulls hidden"></div>
+          <div id="banner-6" class="pulls hidden"></div>
+          <div id="banner-7" class="pulls hidden"></div>
+        </div>
+      </section>
+
+      <footer><a href="https://luxmiyu.com">by luxmiyu</a> | <a id="theme-toggle">switch to light theme</a></footer>
+    </div>
+
+    
+  </body>
+</html>
